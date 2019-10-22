@@ -7,71 +7,87 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <style>
+    
+    </style>
     <title>Hello, world!</title>
+    <?php wp_head(); ?>
   </head>
   <body>
 
-  <div class="container-fluid">
-    <div id="carouselExample" class="carousel slide" data-ride="carousel" data-interval="9000">
-        <div class="carousel-inner row w-100 mx-auto" role="listbox">
-            <div class="carousel-item col-md-3 active">
-                <img class="img-fluid mx-auto d-block" src="//placehold.it/600x400/000/fff?text=1" alt="slide 1">
-            </div>
-            <div class="carousel-item col-md-3">
-                <img class="img-fluid mx-auto d-block" src="//placehold.it/600x400?text=2" alt="slide 2">
-            </div>
-            <div class="carousel-item col-md-3">
-                <img class="img-fluid mx-auto d-block" src="//placehold.it/600x400?text=3" alt="slide 3">
-            </div>
-            <div class="carousel-item col-md-3">
-                <img class="img-fluid mx-auto d-block" src="//placehold.it/600x400?text=4" alt="slide 4">
-            </div>
-            <div class="carousel-item col-md-3">
-                <img class="img-fluid mx-auto d-block" src="//placehold.it/600x400?text=5" alt="slide 5">
-            </div>
-            <div class="carousel-item col-md-3">
-                <img class="img-fluid mx-auto d-block" src="//placehold.it/600x400?text=6" alt="slide 6">
-            </div>
-            <div class="carousel-item col-md-3">
-                <img class="img-fluid mx-auto d-block" src="//placehold.it/600x400?text=7" alt="slide 7">
-            </div>
-            <div class="carousel-item col-md-3">
-                <img class="img-fluid mx-auto d-block" src="//placehold.it/600x400?text=8" alt="slide 8">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
-            <i class="fa fa-chevron-left fa-lg text-muted"></i>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next text-faded" href="#carouselExample" role="button" data-slide="next">
-            <i class="fa fa-chevron-right fa-lg text-muted"></i>
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
+  <div class="container">
+    <h2>populares</h2>
+    
+
+    <ul class="populares">
+    <?php
+    wp_list_categories( array(
+    'hide_empty' => 0, // show empty categories in the list
+    'child_of' => 2, // Replace with the ID of the parent category
+    'title_li'=>'',
+    ) );
+    ?>
+    </ul>
 </div>
+
+<div class="container">
+    <h2>programas</h2>
+    <ul class="programas">
+    <?php
+    wp_list_categories( array(
+    'hide_empty' => 0, // show empty categories in the list
+    'child_of' => 2, // Replace with the ID of the parent category
+    'title_li'=>'',
+    ) );
+    ?>
+    </ul>
+</div>
+
+<div class="container">
+    <h2>Novidades</h2>
+    <ul class="novidades">
+    <?php
+    wp_list_categories( array(
+    'hide_empty' => 0, // show empty categories in the list
+    'child_of' => 2, // Replace with the ID of the parent category
+    'title_li'=>'',
+    ) );
+    ?>
+    </ul>
+</div>
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 <script>
-$('#carouselExample').on('slide.bs.carousel', function (e) {
-
-var $e = $(e.relatedTarget);
-var idx = $e.index();
-var itemsPerSlide = 4;
-var totalItems = $('.carousel-item').length;
-
-if (idx >= totalItems-(itemsPerSlide-1)) {
-    var it = itemsPerSlide - (totalItems - idx);
-    for (var i=0; i<it; i++) {
-        // append slides to end
-        if (e.direction=="left") {
-            $('.carousel-item').eq(i).appendTo('.carousel-inner');
-        }
-        else {
-            $('.carousel-item').eq(0).appendTo('.carousel-inner');
-        }
+$('.populares,.programas,.novidades').slick({
+  centerMode: true,
+  centerPadding: '60px',
+  slidesToShow: 4,
+  responsive: [
+    {
+      breakpoint: 768,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 3
+      }
+    },
+    {
+      breakpoint: 480,
+      settings: {
+        arrows: false,
+        centerMode: true,
+        centerPadding: '40px',
+        slidesToShow: 2
+      }
     }
-}
+  ]
 });
-
 </script>
 
   </body>
