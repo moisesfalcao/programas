@@ -15,6 +15,7 @@
   <body>
  
 
+
 <header>
 <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
     <a href="/" class="navbar-brand d-flex w-50 mr-auto">Navbar 3</a>
@@ -49,6 +50,37 @@
 
 </header>
 
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://via.placeholder.com/300x100/09f.png/fff" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://via.placeholder.com/300x100/09f.png/fff" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="https://via.placeholder.com/300x100/09f.png/fff" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+
+
+
+
 <?php 
 if ( have_posts() ) {
 	while ( have_posts() ) {
@@ -63,12 +95,12 @@ if ( have_posts() ) {
     <?php if( is_front_page() ){ ?>
 
 
-<div class="container">
+<div class="container-fluid">
     <h2>Populares</h2>
     <ul class="populares">
     <?php
       $args = $args = array(
-      'cat' => '12'
+      'cat' => '1'
       );
     // Custom query.
     $query = new WP_Query( $args );
@@ -86,7 +118,7 @@ if ( have_posts() ) {
     </ul>
 </div>
 
-<div class="container">
+<div class="container-fluid">
     <h2>programas</h2>
     <ul class="programas">
     <?php
@@ -96,49 +128,35 @@ if ( have_posts() ) {
     //'title_li'=>'',
     //) );
 
-    $terms = apply_filters( 'taxonomy-images-get-terms', '',array(
-      'parent'=>12,
-      
-    ) );
-if ( ! empty( $terms ) ) {
-    print '<ul>';
-    foreach ( (array) $terms as $term ) {
-        print '<li><a href="' . esc_url( get_term_link( $term, $term->taxonomy ) ) . '">' . wp_get_attachment_image( $term->image_id, 'detail' ) . '</a></li>';
+
+
+
+    $terms = apply_filters( 'taxonomy-images-get-terms', '' ,array('having_images'=>true,'cache_images'=>true,'parent'=>13));
+    if ( ! empty( $terms ) ) {
+        foreach ( (array) $terms as $term ) {
+            
+            print '<li>' . $term->name . '' . get_field('imagem_miniatura',$term) . '<a href="' . esc_url( get_term_link( $term, $term->taxonomy ) ) . '">' . wp_get_attachment_image( $term->image_id, 'full', "", ["class" => "img-fluid"] ) . '</a></li>';
+        }
     }
-    print '</ul>';
-}
     ?>
 
 
-<?php
-      $args = $args = array(
-      'category__in' => '2'
-      );
-    // Custom query.
-    $query = new WP_Query( $args );
- // Check that we have query results.
- if ( $query->have_posts() ) {
-      // Start looping over the query results.
-     while ( $query->have_posts() ) {
-          $query->the_post();
-         echo "<li>" . get_the_title() . "</li>";
-      }
-  }
- // Restore original post data.
- wp_reset_postdata();
- ?>
+
+
+
+
 
 
     
     </ul>
 </div>
 
-<div class="container">
+<div class="container-fluid">
     <h2>Novidades</h2>
     <ul class="novidades">
     <?php
       $args = $args = array(
-      'cat' => '12'
+      'cat' => '1'
       );
     // Custom query.
     $query = new WP_Query( $args );
@@ -177,7 +195,7 @@ if ( ! empty( $terms ) ) {
 <script>
 $('.populares,.programas,.novidades').slick({
   centerMode: true,
-  centerPadding: '60px',
+  centerPadding: '50px',
   slidesToShow: 4,
   responsive: [
     {
@@ -185,7 +203,7 @@ $('.populares,.programas,.novidades').slick({
       settings: {
         arrows: false,
         centerMode: true,
-        centerPadding: '40px',
+        centerPadding: '21px',
         slidesToShow: 3
       }
     },
@@ -194,12 +212,15 @@ $('.populares,.programas,.novidades').slick({
       settings: {
         arrows: false,
         centerMode: true,
-        centerPadding: '40px',
+        centerPadding: '21px',
         slidesToShow: 2
       }
     }
   ]
 });
 </script>
+<style>
+.slick-slide{ margin-right:20px;}
+</style>
   </body>
 </html>
