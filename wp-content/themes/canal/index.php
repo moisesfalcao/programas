@@ -84,24 +84,22 @@
       <div class="container-fluid">
          <h2>programas</h2>
          <ul class="programas">
-            <?php
-               //wp_list_categories( array(
-               //'hide_empty' => 0, // show empty categories in the list
-               //'child_of' => 2, // Replace with the ID of the parent category
-               //'title_li'=>'',
-               //) );
-               
-               
-               
-               
-               $terms = apply_filters( 'taxonomy-images-get-terms', '' ,array('having_images'=>true,'cache_images'=>true,'parent'=>13));
-               if ( ! empty( $terms ) ) {
-                   foreach ( (array) $terms as $term ) {
-                       
-                       print '<li>' . $term->name . '' . get_field('imagem_miniatura',$term) . '<a href="' . esc_url( get_term_link( $term, $term->taxonomy ) ) . '">' . wp_get_attachment_image( $term->image_id, 'full', "", ["class" => "img-fluid"] ) . '</a></li>';
-                   }
-               }
-               ?>
+         <?php
+$args = array( 'hide_empty' => '0', 'child_of' => '13');
+$categories = get_categories($args);
+if($categories){
+	foreach($categories as $category) {
+		echo '<li>';
+		$image = get_field('imagem_miniatura', 'category_'.$category->term_id);
+		echo '<img src="' . $image . '" class="img-fluid" />'; //change depending on the return value of the image field
+		echo '<span class="cat-title">' . $category->name . '</span>';
+		echo '</li>';
+	} 
+}    
+?>
+
+
+
          </ul>
       </div>
       <div class="container-fluid">
@@ -168,5 +166,7 @@
       <style>
          .slick-slide{ margin-right:20px;}
       </style>
+
+
    </body>
 </html>
