@@ -1,6 +1,109 @@
+/* global */
+body {
+  background: #1a051e;
+}
+textarea,
+select,
+input,
+button {
+  outline: none;
+}
+
+/* menu */
+header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 16;
+
+  background: rgb(0, 0, 0);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
+}
+header nav.navbar {
+  padding: 1.7rem 1rem;
+}
+header nav.navbar a {
+  color: #fff;
+  font-family: "Exo", sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.16rem;
+}
+header nav.navbar input {
+  border: 0;
+  border-radius: 1000rem;
+  font-family: "Montserrat", sans-serif;
+  text-indent: 0.5rem;
+  font-size: 1rem;
+  color: #000;
+  opacity: 0.5;
+  padding: 0.5rem;
+}
+header nav.navbar input:focus {
+  opacity: 1;
+  box-shadow: 0px 0px 20px white;
+}
+header nav.navbar button {
+  border: 0;
+  background: none;
+  color: #fff;
+}
+#nav-center a {
+  padding: 0 2rem;
+}
+
 /* carrossel da home */
+#carousel-home {
+  height: 100vh;
+  overflow: hidden;
+}
 #carousel-home .carousel-indicators li {
   width: auto;
   height: auto;
   text-indent: 0;
+  background: none;
+  color: #fff;
+  margin: 0 21px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
 }
+#carousel-home .carousel-indicators li::before {
+  content: " ";
+  width: 100%;
+  height: 8px;
+  display: block;
+  background: #fff;
+  border-radius: 1000rem;
+  margin-bottom: 2rem;
+}
+
+#carousel-home .titulo-episodio {
+  position: absolute;
+  margin-left: 1.2rem;
+  bottom: 14rem;
+}
+
+#carousel-home h2 {
+  width: 40rem;
+  color: #fff;
+  font-family: "Exo", sans-serif;
+  font-weight: 700;
+  font-size: 3.1rem;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 0;
+  height: 8rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* 
+font-family: 'Exo', sans-serif;
+
+*/

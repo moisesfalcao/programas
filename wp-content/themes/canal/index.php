@@ -12,13 +12,13 @@
    </head>
    <body>
       <header>
-         <nav class="navbar navbar-light navbar-expand-md bg-faded justify-content-center">
-            <a href="/" class="navbar-brand d-flex w-50 mr-auto">Navbar 3</a>
+         <nav class="navbar navbar-expand-md bg-faded justify-content-center">
+            <a href="/" class="navbar-brand d-flex w-50 mr-auto"><img src="<?php echo bloginfo('template_url'); ?>/img/logo-branca.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
             <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="navbar-collapse collapse w-100" id="collapsingNavbar3">
-               <ul class="navbar-nav w-100 justify-content-center">
+            <div class="navbar-collapse collapse w-100" id="nav-center">
+               <ul class="navbar-nav w-100 justify-content-center .text-white" >
                   <li class="nav-item active">
                      <a class="nav-link" href="#">SOBRE</a>
                   </li>
@@ -31,13 +31,14 @@
                </ul>
                <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
                   <li class="nav-item">
-                     <a class="nav-link" href="#">Right</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="#">Right</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="#">Right</a>
+                     <a class="nav-link" href="#">
+                     <div class="search-container">
+                        <form action="/action_page.php">
+                           <input type="text" placeholder="Buscar" name="search">
+                           <button type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                     </div>
+                     </a>
                   </li>
                </ul>
             </div>
@@ -53,7 +54,7 @@
                 ?>
          <?php if( is_front_page() ){ ?>
       </header>
-
+      
       <?php get_template_part( 'partes/carousel', 'home' ); ?>
      
 
@@ -167,6 +168,7 @@ if($categories){
          .slick-slide{ margin-right:20px;}
       </style>
 
-
+<link href="https://fonts.googleapis.com/css?family=Exo:700,900|Montserrat:400,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
    </body>
 </html>
