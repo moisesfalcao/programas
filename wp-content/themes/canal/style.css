@@ -56,10 +56,106 @@ header nav.navbar button {
   padding: 0 2rem;
 }
 
+/* miniaturas de episódios nos sliders */
+.cabeca-sliders {
+  width: 100%;
+  display: block;
+  clear: both;
+  height: 3rem;
+  color: #fff;
+  font-size: 3.1rem;
+  line-height: 2rem;
+  font-family: "Exo", sans-serif;
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+}
+.cabeca-sliders .btn {
+  background: #5f5062;
+  font-family: "Montserrat", sans-serif;
+  border: 0;
+  border-radius: 1000rem;
+  margin-left: 30px;
+  font-size: 1rem;
+}
+
+.slick-slide {
+  border-radius: 20px;
+  overflow: hidden;
+}
+.slick-slide h2 {
+  font-family: "Exo", sans-serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+@media (max-width: 415px) {
+  .slick-slide h2 {
+    font-size: 0.9rem;
+  }
+}
+.slick-slide h3 {
+  font-family: "Exo", sans-serif;
+  font-weight: 300;
+  font-size: 0.7rem;
+}
+.slick-slide p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  margin-top: 1.4rem;
+}
+@media (max-width: 415px) {
+  .slick-slide p {
+    display: none;
+  }
+}
+.slick-slide a {
+  position: relative;
+  display: block;
+}
+.slick-slide .titulo-episodio {
+  position: absolute;
+  bottom: 0;
+  color: #fff;
+  z-index: 16;
+  width: 100%;
+  padding: 0 10% 5% 10%;
+  background: rgb(0, 0, 0);
+  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+.slick-arrow {
+  background: none;
+  border: none;
+  background: url(img/left.png) no-repeat;
+  height: 3.7rem;
+  text-indent: -1000rem;
+  width: 2.4rem;
+  position: absolute;
+  top: 50%;
+  margin-top: -2rem;
+  left: 0;
+  z-index: 1;
+}
+.slick-arrow.slick-next {
+  left: auto;
+  right: 0;
+  transform: rotate(180deg);
+}
+
 /* carrossel da home */
 #carousel-home {
   height: 100vh;
   overflow: hidden;
+}
+.carousel-indicators {
+  position: absolute;
+  bottom: 0;
+  height: 8rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+@media (max-width: 1366px) {
+  .carousel-indicators {
+    height: 7rem;
+  }
 }
 #carousel-home .carousel-indicators li {
   width: auto;
@@ -70,6 +166,10 @@ header nav.navbar button {
   margin: 0 21px;
   font-family: "Montserrat", sans-serif;
   font-size: 1rem;
+  opacity: 0.3;
+}
+#carousel-home .carousel-indicators li.active {
+  opacity: 1;
 }
 #carousel-home .carousel-indicators li::before {
   content: " ";
@@ -80,11 +180,34 @@ header nav.navbar button {
   border-radius: 1000rem;
   margin-bottom: 2rem;
 }
+@media (max-width: 1366px) {
+  #carousel-home .carousel-indicators li::before {
+    height: 5px;
+    margin-bottom: 1rem;
+  }
+}
 
 #carousel-home .titulo-episodio {
   position: absolute;
   margin-left: 1.2rem;
   bottom: 14rem;
+}
+@media (max-width: 1366px) {
+  #carousel-home .titulo-episodio {
+    bottom: 13rem;
+  }
+}
+
+#carousel-home .titulo-episodio img {
+  /* max-width: 250px; */
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 1366px) {
+  #carousel-home .titulo-episodio img {
+    max-width: 300px;
+    margin-bottom: 3rem;
+  }
 }
 
 #carousel-home h2 {
@@ -94,16 +217,14 @@ header nav.navbar button {
   font-weight: 700;
   font-size: 3.1rem;
 }
-
-.carousel-indicators {
-  position: absolute;
-  bottom: 0;
-  height: 8rem;
-  margin-left: 0;
-  margin-right: 0;
+@media (max-width: 1366px) {
+  #carousel-home h2 {
+    font-size: 2.1rem;
+  }
 }
 
-/* 
-font-family: 'Exo', sans-serif;
-
-*/
+/* populares na home */
+.slick-slider {
+  padding: 0;
+  overflow: hidden;
+}

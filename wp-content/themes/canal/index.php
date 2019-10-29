@@ -43,6 +43,8 @@
                </ul>
             </div>
          </nav>
+         </header>
+
          <?php 
             if ( have_posts() ) {
             	while ( have_posts() ) {
@@ -53,83 +55,42 @@
                 
                 ?>
          <?php if( is_front_page() ){ ?>
-      </header>
       
       <?php get_template_part( 'partes/carousel', 'home' ); ?>
-     
+      <?php get_template_part( 'partes/populares', 'home' ); ?>
+      <?php get_template_part( 'partes/programas', 'home' ); ?>
+      <?php get_template_part( 'partes/novidades', 'home' ); ?>
 
-
-
-      <div class="container-fluid">
-         <h2>Populares</h2>
-         <ul class="populares">
-            <?php
-               $args = $args = array(
-               'cat' => '1'
-               );
-               // Custom query.
-               $query = new WP_Query( $args );
-               // Check that we have query results.
-               if ( $query->have_posts() ) {
-               // Start looping over the query results.
-               while ( $query->have_posts() ) {
-                   $query->the_post();
-                   echo "<li>" . get_the_title() . "</li>";
-               }
-               }
-               // Restore original post data.
-               wp_reset_postdata();
-               ?>
-         </ul>
-      </div>
-      <div class="container-fluid">
-         <h2>programas</h2>
-         <ul class="programas">
-         <?php
-$args = array( 'hide_empty' => '0', 'child_of' => '13');
-$categories = get_categories($args);
-if($categories){
-	foreach($categories as $category) {
-		echo '<li>';
-		$image = get_field('imagem_miniatura', 'category_'.$category->term_id);
-		echo '<img src="' . $image . '" class="img-fluid" />'; //change depending on the return value of the image field
-		echo '<span class="cat-title">' . $category->name . '</span>';
-		echo '</li>';
-	} 
-}    
-?>
-
-
-
-         </ul>
-      </div>
-      <div class="container-fluid">
-         <h2>Novidades</h2>
-         <ul class="novidades">
-            <?php
-               $args = $args = array(
-               'cat' => '1'
-               );
-               // Custom query.
-               $query = new WP_Query( $args );
-               // Check that we have query results.
-               if ( $query->have_posts() ) {
-               // Start looping over the query results.
-               while ( $query->have_posts() ) {
-                   $query->the_post();
-                   echo "<li>" . get_the_title() . "</li>";
-               }
-               }
-               // Restore original post data.
-               wp_reset_postdata();
-               ?>
-         </ul>
-      </div>
       <?php } /* fim home */ ?>
+
       <?php
          } // end while
          } // end if
          ?>
+
+
+
+
+         <footer>
+            <div class="container-fluid">
+               <div class="row">
+                  <div class="col-12 col-md-6">redes sociais</div>
+                  <div class="col-12 col-md-6">formulário de newsletter</div>
+               </div>
+
+               <div class="row">
+                  <div class="col-12 text-center"> marcas do rodape Apresenta </div>
+               </div>
+
+               <div class="row">
+                  <div class="col-12 text-center"> marcas do rodape Apoio </div>
+               </div>
+
+
+            </div>
+         </footer>
+
+
       <!-- Optional JavaScript -->
       <!-- jQuery first, then Popper.js, then Bootstrap JS -->
       <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
