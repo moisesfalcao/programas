@@ -12,6 +12,7 @@
                 <li>
                     <a href="<?php the_permalink() ?>" title="<?php echo esc_attr(get_the_title() ? get_the_title() : get_the_ID()); ?>">
                         <?php echo '<img class="img-fluid" src="'. get_field('miniatura_do_episodio') .'" alt="">'; ?>
+                        <span class="icone <?php echo strtolower(get_field('tipo_da_midia')); ?>"></span>
                         <div class="titulo-episodio">
                             <h2><?php if ( get_the_title() ) the_title(); else the_ID(); ?></h2>
                             <h3><?php echo get_field('indicacacao_de_episodio'); ?></h3>

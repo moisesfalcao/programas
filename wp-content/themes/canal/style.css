@@ -81,6 +81,7 @@ header nav.navbar button {
 .slick-slide {
   border-radius: 20px;
   overflow: hidden;
+  margin-right: 20px;
 }
 .slick-slide h2 {
   font-family: "Exo", sans-serif;
@@ -121,6 +122,58 @@ header nav.navbar button {
   background: rgb(0, 0, 0);
   background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
 }
+
+.slick-slide .icone {
+  width: 100px;
+  height: 100px;
+  display: block;
+  position: absolute;
+  background-size: 100%;
+  left: 50%;
+  top: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
+}
+@media (max-width: 1366px) {
+  .slick-slide .icone {
+    width: 50px;
+    height: 50px;
+    margin-left: -25px;
+    margin-top: -25px;
+  }
+}
+
+.slick-slide .icone.video {
+  background: url(img/play.png) no-repeat;
+}
+
+.slick-slide .icone.podcast {
+  background: url(img/podcast.png) no-repeat;
+}
+
+/* thumb tipo notícia */
+
+.slick-slide.tipo-noticia a {
+}
+.slick-slide.tipo-noticia .titulo-episodio {
+  padding: 0;
+  bottom: auto;
+  top: 0;
+  background: none;
+  color: #000;
+}
+.slick-slide.tipo-noticia .titulo-episodio h2 {
+  font-size: 3rem;
+  padding: 10% 10% 0 10%;
+}
+.slick-slide.tipo-noticia .titulo-episodio p {
+  padding: 0 10% 0 10%;
+}
+.slick-slide.tipo-noticia .titulo-episodio .btn {
+  background: #000;
+  border: 0;
+}
+
 .slick-arrow {
   background: none;
   border: none;

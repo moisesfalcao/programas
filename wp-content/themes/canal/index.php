@@ -99,6 +99,10 @@
       <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
       <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
       <script>
+
+$(document).ready(function() {
+
+
          $('.populares,.programas,.novidades').slick({
            centerMode: true,
            centerPadding: '50px',
@@ -124,10 +128,24 @@
              }
            ]
          });
+
+         $(window).resize(function(){
+            $('.populares,.programas,.novidades').slick('reInit');
+
+            var maxHeight = -1;
+            $('.slick-slide').each(function() {
+               maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
+            });
+            $('.slick-slide').each(function() {
+               $(this).height(maxHeight);
+            });
+
+         });
+
+         
+           
+         });
       </script>
-      <style>
-         .slick-slide{ margin-right:20px;}
-      </style>
 
 <link href="https://fonts.googleapis.com/css?family=Exo:700,900|Montserrat:400,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
