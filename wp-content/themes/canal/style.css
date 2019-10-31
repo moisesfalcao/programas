@@ -52,8 +52,126 @@ header nav.navbar button {
   background: none;
   color: #fff;
 }
-#nav-center a {
-  padding: 0 2rem;
+
+
+/* rodape */
+footer {
+  margin-top: 150px;
+}
+.redes-copy {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.8rem;
+}
+.redes-copy p {
+  margin-top: 20px;
+}
+.redes-copy ul.termo {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  padding: 0;
+}
+.redes-copy ul.termo li {
+  display: inline-block;
+  list-style: none;
+  margin-right: 30px;
+}
+.redes-copy ul.termo li a {
+  color: #fff;
+}
+.redes-rodape {
+  margin: 0;
+  padding: 0;
+}
+.redes-rodape li {
+  display: inline-block;
+  list-style: none;
+  margin-right: 30px;
+}
+.redes-rodape li a {
+  display: block;
+  width: 50px;
+  height: 50px;
+  background: url(img/redes.png);
+  background-repeat: no-repeat;
+}
+.redes-rodape li.instagram a {
+  background-position: -83px 0;
+}
+.redes-rodape li.youtube a {
+  background-position: -167px 0;
+  width: 71px;
+}
+.redes-rodape li.twitter a {
+  background-position: -273px 0;
+  width: 60px;
+}
+
+footer nav.navbar li {
+  padding: 0;
+}
+footer .navbar-expand-md .navbar-nav .nav-link {
+  padding: 0%
+  padding-right:3rem;
+}
+footer nav.navbar li a {
+  color: #fff;
+  font-family: "Exo", sans-serif;
+  text-align: right;
+  padding: 0;
+  padding-left: 66px;
+}
+footer form {
+  margin-top: 50px;
+}
+footer form ul li {
+  display: inline-block;
+  list-style: none;
+  text-align: right;
+}
+footer form ul li.rotulo {
+  color: #fff;
+  font-family: "Exo", sans-serif;
+  line-height: 1rem;
+}
+footer form ul li input {
+  border: 0;
+  border-bottom: 1px solid #fff;
+  background: none;
+  height: 1.1rem;
+  line-height: 1.5rem;
+  color: #fff;
+  margin-left: 10px;
+}
+footer form ul li .btn {
+  height: inherit;
+  border-radius: 1000rem;
+  color: #5c1269;
+  background: #fff;
+  border: 0;
+  font-size: 0.8rem;
+  padding: 10px 30px;
+}
+footer .apresenta {
+  border-top: 1px solid #fff;
+  margin-top: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  position: relative;
+}
+
+footer .apresenta h3 {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  margin-left: -80px;
+  width: 160px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  color: #fff;
+  background: #1a051e;
 }
 
 /* miniaturas de episódios nos sliders */
@@ -144,11 +262,11 @@ header nav.navbar button {
 }
 
 .slick-slide .icone.video {
-  background: url(img/play.png) no-repeat;
+  background-image: url(img/play.png);
 }
 
 .slick-slide .icone.podcast {
-  background: url(img/podcast.png) no-repeat;
+  background-image: url(img/podcast.png);
 }
 
 /* thumb tipo notícia */
@@ -165,6 +283,11 @@ header nav.navbar button {
 .slick-slide.tipo-noticia .titulo-episodio h2 {
   font-size: 3rem;
   padding: 10% 10% 0 10%;
+}
+@media (max-width: 1366px) {
+  .slick-slide.tipo-noticia .titulo-episodio h2 {
+    font-size: 2rem;
+  }
 }
 .slick-slide.tipo-noticia .titulo-episodio p {
   padding: 0 10% 0 10%;

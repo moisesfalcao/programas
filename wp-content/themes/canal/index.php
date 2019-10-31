@@ -28,6 +28,9 @@
                   <li class="nav-item">
                      <a class="nav-link" href="#">NOVIDADES</a>
                   </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="#">CONTATO/AJUDA</a>
+                  </li>
                </ul>
                <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
                   <li class="nav-item">
@@ -71,24 +74,7 @@
 
 
 
-         <footer>
-            <div class="container-fluid">
-               <div class="row">
-                  <div class="col-12 col-md-6">redes sociais</div>
-                  <div class="col-12 col-md-6">formulário de newsletter</div>
-               </div>
-
-               <div class="row">
-                  <div class="col-12 text-center"> marcas do rodape Apresenta </div>
-               </div>
-
-               <div class="row">
-                  <div class="col-12 text-center"> marcas do rodape Apoio </div>
-               </div>
-
-
-            </div>
-         </footer>
+<?php get_template_part( 'partes/footer'); ?>
 
 
       <!-- Optional JavaScript -->
@@ -101,51 +87,49 @@
       <script>
 
 $(document).ready(function() {
+$('.populares,.programas,.novidades').slick({
+   centerMode: true,
+   centerPadding: '50px',
+   slidesToShow: 4,
+   responsive: [
+      {
+         breakpoint: 768,
+         settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '21px',
+            slidesToShow: 3
+         }
+      },
+         {
+         breakpoint: 480,
+         settings: {
+            arrows: false,
+            centerMode: true,
+            centerPadding: '21px',
+            slidesToShow: 2
+         }
+      }
+   ]
+});
+
+$(window).resize(function(){
+   $('.populares,.programas,.novidades').slick('reInit');
+
+   var maxHeight = -1;
+   $('.slick-slide').each(function() {
+      maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
+   });
+   $('.slick-slide').each(function() {
+      $(this).height(maxHeight);
+   });
+
+});
 
 
-         $('.populares,.programas,.novidades').slick({
-           centerMode: true,
-           centerPadding: '50px',
-           slidesToShow: 4,
-           responsive: [
-             {
-               breakpoint: 768,
-               settings: {
-                 arrows: false,
-                 centerMode: true,
-                 centerPadding: '21px',
-                 slidesToShow: 3
-               }
-             },
-             {
-               breakpoint: 480,
-               settings: {
-                 arrows: false,
-                 centerMode: true,
-                 centerPadding: '21px',
-                 slidesToShow: 2
-               }
-             }
-           ]
-         });
 
-         $(window).resize(function(){
-            $('.populares,.programas,.novidades').slick('reInit');
-
-            var maxHeight = -1;
-            $('.slick-slide').each(function() {
-               maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
-            });
-            $('.slick-slide').each(function() {
-               $(this).height(maxHeight);
-            });
-
-         });
-
-         
-           
-         });
-      </script>
+});
+</script>
 
 <link href="https://fonts.googleapis.com/css?family=Exo:700,900|Montserrat:400,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
