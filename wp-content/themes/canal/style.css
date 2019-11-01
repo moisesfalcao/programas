@@ -53,6 +53,26 @@ header nav.navbar button {
   color: #fff;
 }
 
+@media (min-width: 1300px){
+  .navbar-expand-custom {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+  }
+  .navbar-expand-custom .navbar-nav {
+      flex-direction: row;
+  }
+  .navbar-expand-custom .navbar-nav .nav-link {
+      padding-right: .5rem;
+      padding-left: .5rem;
+  }
+  .navbar-expand-custom .navbar-collapse {
+      display: flex!important;
+  }
+  .navbar-expand-custom .navbar-toggler {
+      display: none;
+  }
+}
 
 /* rodape */
 footer {
@@ -172,6 +192,23 @@ footer .apresenta h3 {
   text-align: center;
   color: #fff;
   background: #1a051e;
+}
+
+/* definição de botões */
+.btn{
+  border-radius: 1000rem;
+  font-size: .8rem;
+  padding: 10px 20px;
+}
+.btn.play{
+  padding: 10px 20px 10px 40px;
+  background-color: rgba(248, 249, 250, 0.25);
+  border: 0;
+  color: #fff;
+  background-image: url(img/play-button.png);
+  background-repeat: no-repeat;
+  background-position: 15px 10px;
+
 }
 
 /* miniaturas de episódios nos sliders */
@@ -403,4 +440,31 @@ footer .apresenta h3 {
 .slick-slider {
   padding: 0;
   overflow: hidden;
+}
+
+
+/* pagina programas */
+#carousel-programas .titulo-episodio{
+  position: absolute;
+  bottom: 10rem;
+  margin: 0 7%;
+  width: 600px;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  
+}
+#carousel-programas .titulo-episodio p{
+  font-size: 1.5rem
+}
+#carousel-programas .titulo-episodio h2{
+  font-family: "Exo", sans-serif;
+  font-size: 3rem;
+}
+.cabeca-sliders a span{
+  color: #fff;
+}
+@media (max-width: 768px) {
+  .cabeca-sliders a span{
+    font-size: 2rem;
+  }
 }

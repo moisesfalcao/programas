@@ -11,70 +11,34 @@
       <?php wp_head(); ?>
    </head>
    <body>
-      <header>
-         <nav class="navbar navbar-expand-md bg-faded justify-content-center">
-            <a href="/" class="navbar-brand d-flex w-50 mr-auto"><img src="<?php echo bloginfo('template_url'); ?>/img/logo-branca.png" alt=""></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsingNavbar3">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse w-100" id="nav-center">
-               <ul class="navbar-nav w-100 justify-content-center .text-white" >
-                  <li class="nav-item active">
-                     <a class="nav-link" href="#">SOBRE</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="//codeply.com">PROGRAMAS</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="#">NOVIDADES</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="#">CONTATO/AJUDA</a>
-                  </li>
-               </ul>
-               <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
-                  <li class="nav-item">
-                     <a class="nav-link" href="#">
-                     <div class="search-container">
-                        <form action="/action_page.php">
-                           <input type="text" placeholder="Buscar" name="search">
-                           <button type="submit"><i class="fa fa-search"></i></button>
-                        </form>
-                     </div>
-                     </a>
-                  </li>
-               </ul>
-            </div>
-         </nav>
-         </header>
+   <?php get_template_part( 'partes/headermenu'); ?>
+   <?php 
+      if ( have_posts() ) {
+         while ( have_posts() ) {
+            the_post(); 
+            
+               if( is_front_page() ){ // start home
+               
+                get_template_part( 'partes/carousel', 'home' ); 
+                get_template_part( 'partes/populares', 'home' );
+                get_template_part( 'partes/programas', 'home' );
+                get_template_part( 'partes/novidades', 'home' );
 
-         <?php 
-            if ( have_posts() ) {
-            	while ( have_posts() ) {
-            		the_post(); 
-            		//
-            		// Post Content here
-                //
-                
-                ?>
-         <?php if( is_front_page() ){ ?>
-      
-      <?php get_template_part( 'partes/carousel', 'home' ); ?>
-      <?php get_template_part( 'partes/populares', 'home' ); ?>
-      <?php get_template_part( 'partes/programas', 'home' ); ?>
-      <?php get_template_part( 'partes/novidades', 'home' ); ?>
+               }else{ // end home // start others
+                  global $post;
+                  $post_slug = $post->post_name;
+                  switch ($post_slug){
+                    case 'programas':
+                    get_template_part( 'partes/pagina', 'programas' );
+                      break;
+                  } 
 
-      <?php } /* fim home */ ?>
-
-      <?php
-         } // end while
+               }
+            } // end while
          } // end if
-         ?>
 
 
-
-
-<?php get_template_part( 'partes/footer'); ?>
+         get_template_part( 'partes/footer'); ?>
 
 
       <!-- Optional JavaScript -->
@@ -87,24 +51,26 @@
       <script>
 
 $(document).ready(function() {
-$('.populares,.programas,.novidades').slick({
+$('.populares,.programas,.novidades,.lista-programas').slick({
    centerMode: true,
+   infinite: true,
    centerPadding: '50px',
    slidesToShow: 4,
+   slidesToScroll: 4,
+   speed: 300,
    responsive: [
       {
          breakpoint: 768,
          settings: {
-            arrows: false,
             centerMode: true,
             centerPadding: '21px',
             slidesToShow: 3
+            
          }
       },
          {
          breakpoint: 480,
          settings: {
-            arrows: false,
             centerMode: true,
             centerPadding: '21px',
             slidesToShow: 2
@@ -113,18 +79,7 @@ $('.populares,.programas,.novidades').slick({
    ]
 });
 
-$(window).resize(function(){
-   $('.populares,.programas,.novidades').slick('reInit');
 
-   var maxHeight = -1;
-   $('.slick-slide').each(function() {
-      maxHeight = maxHeight > $(this).height() ? maxHeight : $(this).height();
-   });
-   $('.slick-slide').each(function() {
-      $(this).height(maxHeight);
-   });
-
-});
 
 
 
