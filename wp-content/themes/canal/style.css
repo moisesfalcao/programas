@@ -8,7 +8,14 @@ input,
 button {
   outline: none;
 }
-
+h1,h2,h3,h4,h5{
+  font-family: "Exo", sans-serif;
+  color: #fff;
+}
+p{
+  font-family: "Montserrat", sans-serif;
+  color: #fff;
+}
 /* menu */
 header {
   position: absolute;
@@ -233,41 +240,43 @@ footer .apresenta h3 {
   font-size: 1rem;
 }
 
-.slick-slide {
+
+
+.slick-slide, .epi-pro li {
   border-radius: 20px;
   overflow: hidden;
   margin-right: 20px;
 }
-.slick-slide h2 {
+.slick-slide h2,.epi-pro li h2 {
   font-family: "Exo", sans-serif;
   font-weight: 700;
   font-size: 1.2rem;
 }
 @media (max-width: 415px) {
-  .slick-slide h2 {
+  .slick-slide h2, .epi-pro li h2 {
     font-size: 0.9rem;
   }
 }
-.slick-slide h3 {
+.slick-slide h3, .epi-pro li h3 {
   font-family: "Exo", sans-serif;
   font-weight: 300;
   font-size: 0.7rem;
 }
-.slick-slide p {
+.slick-slide p, .epi-pro li p {
   font-family: "Montserrat", sans-serif;
   font-size: 0.9rem;
   margin-top: 1.4rem;
 }
 @media (max-width: 415px) {
-  .slick-slide p {
+  .slick-slide p, .epi-pro li p {
     display: none;
   }
 }
-.slick-slide a {
+.slick-slide a, .epi-pro li a {
   position: relative;
   display: block;
 }
-.slick-slide .titulo-episodio {
+.slick-slide .titulo-episodio, .epi-pro li .titulo-episodio {
   position: absolute;
   bottom: 0;
   color: #fff;
@@ -278,7 +287,7 @@ footer .apresenta h3 {
   background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
-.slick-slide .icone {
+.slick-slide .icone, .epi-pro li .icone {
   width: 100px;
   height: 100px;
   display: block;
@@ -290,7 +299,7 @@ footer .apresenta h3 {
   margin-top: -50px;
 }
 @media (max-width: 1366px) {
-  .slick-slide .icone {
+  .slick-slide .icone, .epi-pro li .icone {
     width: 50px;
     height: 50px;
     margin-left: -25px;
@@ -298,13 +307,17 @@ footer .apresenta h3 {
   }
 }
 
-.slick-slide .icone.video {
+.slick-slide .icone.video, .epi-pro li .icone.video {
   background-image: url(img/play.png);
 }
 
-.slick-slide .icone.podcast {
+.slick-slide .icone.podcast, .epi-pro li .icone.podcast {
   background-image: url(img/podcast.png);
 }
+
+
+.epi-pro {padding: 0; margin: 0}
+.epi-pro li{ padding: 0; margin: 0 0 30px 0;   }
 
 /* thumb tipo notícia */
 
@@ -467,4 +480,87 @@ footer .apresenta h3 {
   .cabeca-sliders a span{
     font-size: 2rem;
   }
+}
+
+.logo-programa {
+  width: 400px;
+  position: absolute;
+  bottom: 40%;
+  right: 10%;
+}
+
+/* episodios */
+.mask{
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);;
+  height: 400px;
+  width: 100%;
+  padding: 1%;
+}
+
+#carousel-programas.single .btn{
+  margin: 1%;
+}
+
+#carousel-programas.single .titulo-episodio{
+  margin: 0;
+  bottom: 0;
+  padding: 0;
+  width: 100%;
+}
+
+#carousel-programas.single .titulo-episodio h2{
+  font-size: 1.8rem;
+}
+
+#carousel-programas.single .titulo-episodio h3{
+  font-family: "Exo", sans-serif;
+  font-size: 1rem;
+  padding-top: 1rem;
+}
+
+#carousel-programas.single .titulo-episodio p{
+  font-size: .9rem;
+  margin: 0;
+}
+
+#carousel-programas.single .btn-primary{
+  background-color: rgba(248, 249, 250, .3);
+  border:0;
+  outline: none;
+}
+
+.episodio-relacionado a{
+  color: #fff;
+  margin-bottom: 30px;
+  display: block;
+}
+
+.episodio-relacionado img{
+  border-radius: 20px;
+}
+.episodio-relacionado h2{
+  font-size: 1rem;
+  font-family: "Exo", sans-serif;
+}
+.episodio-relacionado h3{
+  font-size: 1rem;
+}
+.episodio-relacionado p{
+  font-size: 0.8rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.modal-full {
+    min-width: 100%;
+    margin: 0;
+}
+
+.modal-full .modal-content {
+    min-height: 100vh;
+}
+
+/* pagina sobre */
+.pagina-sobre{
+  margin-top: 200px;
 }

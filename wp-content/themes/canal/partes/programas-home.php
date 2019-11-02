@@ -4,7 +4,7 @@
          
         <div class="cabeca-sliders">
             <span class='pull-left'>Programas</span>
-            <button class='btn btn-primary pull-left'>Ver Todos</button>
+            <a href="<?php echo get_option( 'siteurl' ); ?>/programas"><button class='btn btn-primary pull-left'>Ver Todos</button></a>
         </div>
 
          <ul class="programas">
@@ -20,7 +20,7 @@
                foreach($categories as $category) {
                    ?>
                 <li>
-                    <a href="<?php the_permalink() ?>" title="<?php echo esc_attr(get_the_title() ? get_the_title() : get_the_ID()); ?>">
+                    <a href="<?php echo get_category_link( $category->term_id ) ?>" title="<?php echo esc_attr(get_the_title() ? get_the_title() : get_the_ID()); ?>">
                                                 <?php 
                         $image = get_field('imagem_miniatura', 'category_'.$category->term_id);
                         echo '<img src="' . $image . '" class="img-fluid" alt=" " />'; 

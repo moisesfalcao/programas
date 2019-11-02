@@ -10,13 +10,13 @@
                      <a class="nav-link" href="#">SOBRE</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="//codeply.com">PROGRAMAS</a>
+                     <a class="nav-link" href="<?php echo get_option( 'siteurl' ); ?>/programas">PROGRAMAS</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">NOVIDADES</a>
+                     <a class="nav-link" href="<?php echo get_option( 'siteurl' ); ?>/novidades">NOVIDADES</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="#">CONTATO/AJUDA</a>
+                     <a class="nav-link" href="<?php echo get_option( 'siteurl' ); ?>/contato">CONTATO/AJUDA</a>
                   </li>
                </ul>
                <ul class="nav navbar-nav ml-auto w-100 justify-content-end">
