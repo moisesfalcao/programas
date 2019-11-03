@@ -58,6 +58,7 @@ $categories=get_categories($cat_args);
       'showposts' => -1,
       'category__in' => array($category->term_id),
       'caller_get_posts'=>1,
+      'category__not_in'=>24
       
     );
     $posts=get_posts($args);

@@ -22,9 +22,14 @@
                   case 'canal-maker':
                      get_template_part( 'partes/pagina', 'sobre' );
                      break;
+                  case 'novidades':
+                     get_template_part( 'partes/pagina', 'novidades' );
+                     break;
+                  case 'contato':
+                     get_template_part( 'partes/pagina', 'contato' );
+                     break;
                } 
                 
-                  
 
                }
             } // end while

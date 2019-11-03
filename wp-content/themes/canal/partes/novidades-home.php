@@ -1,7 +1,8 @@
 <div class="container-fluid">
     <div class="cabeca-sliders">
         <span class='pull-left'>Novidades</span>
-        <button class='btn btn-primary pull-left'>Ver Todos</button>
+        <a href="<?php echo get_option( 'siteurl' ); ?>/novidades"><button class='btn btn-primary pull-left'>Ver Todos</button></a>
+
     </div>
     <ul class="populares">
     <?php
