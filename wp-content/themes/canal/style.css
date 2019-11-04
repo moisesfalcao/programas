@@ -53,7 +53,7 @@ header nav.navbar button {
   color: #fff;
 }
 #nav-center a {
-  padding: 0 2rem;
+  padding: 0 1.8rem;
 }
 
 /* carrossel da home */
@@ -84,7 +84,11 @@ header nav.navbar button {
 #carousel-home .titulo-episodio {
   position: absolute;
   margin-left: 1.2rem;
-  bottom: 14rem;
+  bottom: 16rem;
+}
+#carousel-home .titulo-episodio img{
+  max-width:280px;
+  margin-bottom:2rem;
 }
 
 #carousel-home h2 {
@@ -93,6 +97,16 @@ header nav.navbar button {
   font-family: "Exo", sans-serif;
   font-weight: 700;
   font-size: 3.1rem;
+  padding:0;
+  margin:0;
+}
+@media (max-width: 1366px) {
+  #carousel-home .titulo-episodio{
+    bottom:17rem;
+  }
+  #carousel-home h2 {
+    font-size:2rem;
+  }
 }
 
 .carousel-indicators {

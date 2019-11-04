@@ -61,7 +61,7 @@
 
 
       <div class="container-fluid">
-         <h2>Populares</h2>
+         <h2>Populares no Canal Maker</h2>
          <ul class="populares">
             <?php
                $args = $args = array(
