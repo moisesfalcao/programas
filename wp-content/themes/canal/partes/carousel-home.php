@@ -19,7 +19,8 @@
                 echo '<img src="' . get_the_post_thumbnail_url() . '" class="d-block w-100" alt="'. get_the_title() .'">
                 <div class="titulo-episodio">
                     <img class="icone-episodio" src="'. get_field('icone_do_episodio') .'" alt="">
-                    <h2>'. get_the_title() .'</h2>
+                    <h2><a href="' . get_the_permalink() . '">'. get_the_title() .'</a></h2>
+                    
                 </div>
                 
                 
